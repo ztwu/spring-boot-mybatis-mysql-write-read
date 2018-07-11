@@ -13,21 +13,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableAutoConfiguration
 @EnableTransactionManagement(order = 10) //开启事务，并设置order值，默认是Integer的最大值
-@ComponentScan(basePackages={"com.fei.springboot"})
+@ComponentScan(basePackages = {"com.fei.springboot"})
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer{
+public class Application extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
 
-	 @Override  
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
-        return application.sources(Application.class);  
-    }  
-  
-	 
-	 public static void main(String[] args) throws Exception {
-	        SpringApplication.run(Application.class, args);
-	    }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
 
-	public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-	//	configurableEmbeddedServletContainer.setPort(9090);
-	}
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+    public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
+        //	configurableEmbeddedServletContainer.setPort(9090);
+    }
 }

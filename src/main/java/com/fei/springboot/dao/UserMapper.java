@@ -12,13 +12,13 @@ import com.fei.springboot.domain.User;
 @Mapper
 public interface UserMapper {
 
-	@Insert("insert sys_user(id,user_name) values(#{id},#{userName})")
+	@Insert("insert master(id,name) values(#{id},#{name})")
 	void insert(User u);
 	
-	@Select("select id,user_name from sys_user where id=#{id} ")
+	@Select("select id,name from master where id=#{id} ")
 	User findById(@Param("id")String id);
 	
 	//注：方法名和要UserMapper.xml中的id一致
-	List<User> query(@Param("userName")String userName);
+	List<User> query(@Param("name")String name);
 	
 }

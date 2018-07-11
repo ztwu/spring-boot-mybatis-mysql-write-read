@@ -50,17 +50,13 @@ public class UserService {
 		getService().insertUser(u);//这里走写库，那后面的读也都要走写库
 		//这是刚刚插入的
 		User uu = getService().findById(u.getId());
-		System.out.println("==读写混合测试中的读(刚刚插入的)====id="+u.getId()+",  user_name=" + uu.getUserName());
-		//为了测试,3个库中id=1的user_name是不一样的
-		User uuu = getService().findById("1");
-		System.out.println("==读写混合测试中的读====id=1,  user_name=" + uuu.getUserName());
-		
+		System.out.println("==读写混合测试中的读(刚刚插入的)====id="+u.getId()+",  user_name=" + uu.getName());
 	}
 	
 	public void readAndWirte(User u){
 		//为了测试,3个库中id=1的user_name是不一样的
-		User uu = getService(). findById("1");
-		System.out.println("==读写混合测试中的读====id=1,user_name=" + uu.getUserName());
+		User uu = getService(). findById("31");
+		System.out.println("==读写混合测试中的读====id=1,user_name=" + uu.getName());
 		getService().insertUser(u);
 		
 	}

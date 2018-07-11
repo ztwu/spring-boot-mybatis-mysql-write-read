@@ -32,9 +32,9 @@ public class UserController {
 	public String add(String id,String userName){
 		User u = new User();
 		u.setId(id);
-		u.setUserName(userName);
+		u.setName(userName);
 		this.userService.insertUser(u);
-		return u.getId()+"    " + u.getUserName();
+		return u.getId()+"    " + u.getName();
 	}
 	/**
 	 * 测试读
@@ -45,7 +45,7 @@ public class UserController {
 	@ResponseBody
 	public String findById(@PathVariable("id") String id){
 		User u = this.userService.findById(id);
-		return u.getId()+"    " + u.getUserName();
+		return u.getId()+"    " + u.getName();
 	}
 	/**
 	 * 测试写然后读
@@ -58,9 +58,9 @@ public class UserController {
 	public String addAndRead(String id,String userName){
 		User u = new User();
 		u.setId(id);
-		u.setUserName(userName);
+		u.setName(userName);
 		this.userService.wirteAndRead(u);
-		return u.getId()+"    " + u.getUserName();
+		return u.getId()+"    " + u.getName();
 	}
 	
 	/**
@@ -74,9 +74,9 @@ public class UserController {
 	public String readAndWrite(String id,String userName){
 		User u = new User();
 		u.setId(id);
-		u.setUserName(userName);
+		u.setName(userName);
 		this.userService.readAndWirte(u);
-		return u.getId()+"    " + u.getUserName();
+		return u.getId()+"    " + u.getName();
 	}
 	
 	/**
@@ -91,7 +91,7 @@ public class UserController {
 		sb.append("<br/>总页数=" + page.getPages());
 		sb.append("<br/>总记录数=" + page.getTotal()) ;
 		for(User u : page.getList()){
-			sb.append("<br/>" + u.getId() + "      " + u.getUserName());
+			sb.append("<br/>" + u.getId() + "      " + u.getName());
 		}
 		System.out.println("分页查询....\n" + sb.toString());
 		return sb.toString();
