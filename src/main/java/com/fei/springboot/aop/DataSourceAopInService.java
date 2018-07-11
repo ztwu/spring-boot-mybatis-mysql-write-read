@@ -28,11 +28,10 @@ public class DataSourceAopInService implements PriorityOrdered{
 
 private static Logger log = LoggerFactory.getLogger(DataSourceAopInService.class);
 	
-/*	@Before("execution(* com.fei.springboot.service..*.find*(..)) "
+   @Before("execution(* com.fei.springboot.service..*.find*(..)) "
 			+ " or execution(* com.fei.springboot.service..*.get*(..)) "
 			+ " or execution(* com.fei.springboot.service..*.query*(..))")
     public void setReadDataSourceType() {
-		//如果已经开启写事务了，那之后的所有读都从写库读
 		if(!DataSourceType.write.getType().equals(DataSourceContextHolder.getReadOrWrite())){
 			DataSourceContextHolder.setRead();
 		}
@@ -44,10 +43,10 @@ private static Logger log = LoggerFactory.getLogger(DataSourceAopInService.class
     		+ " or execution(* com.fei.springboot.service..*.add*(..))")
     public void setWriteDataSourceType() {
         DataSourceContextHolder.setWrite();
-    }*/
+    }
     
 
-	@Before("execution(* com.fei.springboot.service..*.*(..)) "
+	/*@Before("execution(* com.fei.springboot.service..*.*(..)) "
 			+ " and @annotation(com.fei.springboot.annotation.ReadDataSource) ")
 	public void setReadDataSourceType() {
 		//如果已经开启写事务了，那之后的所有读都从写库读
@@ -61,7 +60,7 @@ private static Logger log = LoggerFactory.getLogger(DataSourceAopInService.class
 			+ " and @annotation(com.fei.springboot.annotation.WriteDataSource) ")
 	public void setWriteDataSourceType() {
 	    DataSourceContextHolder.setWrite();
-	}
+	}*/
     
 	@Override
 	public int getOrder() {

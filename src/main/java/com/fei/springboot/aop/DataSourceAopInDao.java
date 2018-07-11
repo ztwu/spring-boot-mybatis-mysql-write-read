@@ -4,6 +4,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import com.fei.springboot.config.dbconfig.DataSourceContextHolder;
@@ -20,7 +21,7 @@ public class DataSourceAopInDao {
 
 	private static Logger log = LoggerFactory.getLogger(DataSourceAopInDao.class);
 	
-	/*@Before("execution(* com.fei.springboot.dao..*.find*(..)) "
+	@Before("execution(* com.fei.springboot.dao..*.find*(..)) "
 			+ " or execution(* com.fei.springboot.dao..*.get*(..)) "
 			+ " or execution(* com.fei.springboot.dao..*.query*(..))")
     public void setReadDataSourceType() {
@@ -32,10 +33,10 @@ public class DataSourceAopInDao {
     		+ " or execution(* com.fei.springboot.dao..*.add*(..))")
     public void setWriteDataSourceType() {
         DataSourceContextHolder.setWrite();
-    }*/
+    }
     
     
-    @Before("execution(* com.fei.springboot.dao..*.*(..)) "
+    /*@Before("execution(* com.fei.springboot.dao..*.*(..)) "
 			+ " and @annotation(com.fei.springboot.annotation.ReadDataSource) ")
 	public void setReadDataSourceType() {
 		//如果已经开启写事务了，那之后的所有读都从写库读
@@ -49,5 +50,5 @@ public class DataSourceAopInDao {
 			+ " and @annotation(com.fei.springboot.annotation.WriteDataSource) ")
 	public void setWriteDataSourceType() {
 	    DataSourceContextHolder.setWrite();
-	}
+	}*/
 }

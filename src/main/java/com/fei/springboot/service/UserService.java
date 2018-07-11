@@ -35,7 +35,7 @@ public class UserService {
 	private UserMapper userMapper;
 	
 	@WriteDataSource
-	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.DEFAULT,readOnly=false)
+//	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.DEFAULT,readOnly=false)
 	public void insertUser(User u){
 		this.userMapper.insert(u);
 	
